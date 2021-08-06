@@ -1,0 +1,73 @@
+<form [formGroup]="loginform">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+        <input type="text"  placeholder="First Name" formControlName="firstname"
+          required />
+        <div *ngIf="firstname.valid && (firstname.pristine|| firstname.touched)" class="alert alert-success"></div>
+        <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert alert-danger">
+          <div *ngIf="firstname.errors?.required">firstname is required.</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3 ">
+        <input type="text"  placeholder="LastName" formControlName="lastname"
+          required />
+          <div *ngIf="lastname.valid && (lastname.pristine || lastname.touched)" class="alert alert-success"></div>
+        <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert alert-danger">
+          <div *ngIf="lastname.errors?.required">lastname is required.</div>
+
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+        <input type="text"  placeholder="Email" formControlName="email"
+          required />
+        <div *ngIf="email.valid && (email.pristine|| email.touched)" class="alert alert-success"></div>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+          <div *ngIf="email.errors?.required">email is required.</div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row" id="second_row">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+        <input type="text" placeholder="Phone" maxlength="10"
+          formControlName="phone_no" required />
+        <div *ngIf="phone_no.valid && (phone_no.pristine || phone_no.touched)" class="alert alert-success"></div>
+        <div *ngIf="phone_no.invalid && (phone_no.dirty || phone_no.touched)" class="alert alert-danger">
+          <div *ngIf="phone_no.errors?.required">phone_no is required.</div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3 ">
+
+        <select id="testType" formControlName="country">
+          <option *ngFor="let country_name of countryArray" [ngValue]="country_name">{{country_name.name}}</option>
+        </select>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3" id="customControlValidation6">
+
+        <select id="testType" formControlName="state">
+          <option *ngFor="let state_name of stateArray" [ngValue]="state_name">{{state_name.name}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="customControlValidation6">
+      <div id="third">
+        Gender:
+
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+        <label class="form-check-label" for="inlineRadio1">Male</label>
+
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+        <label class="form-check-label" for="inlineRadio2">Female</label>
+
+        <div id="button">
+          <button type="button" class="btn btn-primary btn-lg style">SUBMIT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
